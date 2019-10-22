@@ -542,8 +542,21 @@ GstBusSyncReply IBaseStream::HandleSyncBusMessageReceived(GstBus* bus, GstMessag
 }
 
 void IBaseStream::OnOutputDataFailed() {
-  WARNING_LOG() << "There is no output data for a last " << no_data_panic_sec << " seconds.";
-  Quit(EXIT_INNER);
+  bool is_lazy_streams = false;
+  // #FIXME, sinks on pads not generate speed
+  for (const OutputUri& output : config_->GetOutput()) {
+    common::uri::Url uri = output.GetOutput();
+    common::uri::Url::scheme scheme = uri.GetScheme();
+    if (scheme == common::uri::Url::srt || scheme == common::uri::Url::udp) {
+      is_lazy_streams = true;
+      break;
+    }
+  }
+
+  if (!is_lazy_streams) {
+    WARNING_LOG() << "There is no output data for a last " << no_data_panic_sec << " seconds.";
+    Quit(EXIT_INNER);
+  }
 }
 
 void IBaseStream::OnOutputDataOK() {
