@@ -24,10 +24,6 @@ size_t IServerHandler::GetOnlineClients() const {
   return online_clients_;
 }
 
-void IServerHandler::PreLooped(common::libev::IoLoop* server) {
-  UNUSED(server);
-}
-
 void IServerHandler::Accepted(common::libev::IoClient* client) {
   UNUSED(client);
   online_clients_++;
@@ -36,44 +32,12 @@ void IServerHandler::Accepted(common::libev::IoClient* client) {
 void IServerHandler::Moved(common::libev::IoLoop* server, common::libev::IoClient* client) {
   UNUSED(server);
   UNUSED(client);
+  online_clients_--;
 }
 
 void IServerHandler::Closed(common::libev::IoClient* client) {
   UNUSED(client);
   online_clients_--;
-}
-
-void IServerHandler::TimerEmited(common::libev::IoLoop* server, common::libev::timer_id_t id) {
-  UNUSED(server);
-  UNUSED(id);
-}
-
-void IServerHandler::Accepted(common::libev::IoChild* child) {
-  UNUSED(child);
-}
-
-void IServerHandler::Moved(common::libev::IoLoop* server, common::libev::IoChild* child) {
-  UNUSED(server);
-  UNUSED(child);
-  online_clients_--;
-}
-
-void IServerHandler::ChildStatusChanged(common::libev::IoChild* child, int status, int signal) {
-  UNUSED(child);
-  UNUSED(status);
-  UNUSED(signal);
-}
-
-void IServerHandler::DataReceived(common::libev::IoClient* client) {
-  UNUSED(client);
-}
-
-void IServerHandler::DataReadyToWrite(common::libev::IoClient* client) {
-  UNUSED(client);
-}
-
-void IServerHandler::PostLooped(common::libev::IoLoop* server) {
-  UNUSED(server);
 }
 
 }  // namespace base

@@ -26,17 +26,17 @@ class ChangedSouresInfo : public common::serializer::JsonSerializer<ChangedSoure
   typedef JsonSerializer<ChangedSouresInfo> base_class;
   typedef InputUri url_t;
   ChangedSouresInfo();
-  explicit ChangedSouresInfo(stream_id_t sid, const url_t& url);
+  explicit ChangedSouresInfo(fastotv::stream_id_t sid, const url_t& url);
 
   url_t GetUrl() const;
-  stream_id_t GetStreamID() const;
+  fastotv::stream_id_t GetStreamID() const;
 
  protected:
   common::Error DoDeSerialize(json_object* serialized) override;
   common::Error SerializeFields(json_object* out) const override;
 
  private:
-  stream_id_t id_;
+  fastotv::stream_id_t id_;
   url_t url_;
 };
 

@@ -22,9 +22,9 @@ namespace stream {
 
 StreamInfo::StreamInfo() : base_class(), stream_id_() {}
 
-StreamInfo::StreamInfo(stream_id_t stream_id) : stream_id_(stream_id) {}
+StreamInfo::StreamInfo(fastotv::stream_id_t stream_id) : stream_id_(stream_id) {}
 
-stream_id_t StreamInfo::GetStreamID() const {
+fastotv::stream_id_t StreamInfo::GetStreamID() const {
   return stream_id_;
 }
 

@@ -23,9 +23,9 @@ namespace fastocloud {
 class ChannelStats {  // only compile time size fields
  public:
   ChannelStats();
-  explicit ChannelStats(channel_id_t cid);
+  explicit ChannelStats(fastotv::channel_id_t cid);
 
-  channel_id_t GetID() const;
+  fastotv::channel_id_t GetID() const;
 
   fastotv::timestamp_t GetLastUpdateTime() const;
   void SetLastUpdateTime(fastotv::timestamp_t t);
@@ -48,7 +48,7 @@ class ChannelStats {  // only compile time size fields
   common::media::DesireBytesPerSec GetDesireBytesPerSecond() const;
 
  private:
-  channel_id_t id_;
+  fastotv::channel_id_t id_;
 
   fastotv::timestamp_t last_update_time_;  // up_time
   size_t total_bytes_;                     // received bytes

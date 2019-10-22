@@ -30,7 +30,7 @@ class GetLogInfo : public StreamInfo {
   typedef common::uri::Url url_t;
 
   GetLogInfo();
-  explicit GetLogInfo(stream_id_t stream_id, const std::string& feedback_dir, const url_t& log_path);
+  explicit GetLogInfo(fastotv::stream_id_t stream_id, const std::string& feedback_dir, const url_t& log_path);
 
   url_t GetLogPath() const;
   std::string GetFeedbackDir() const;

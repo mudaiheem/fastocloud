@@ -28,7 +28,7 @@ class Child : public common::libev::IoChild {
  public:
   typedef fastotv::protocol::protocol_client_t client_t;
 
-  virtual stream_id_t GetStreamID() const = 0;
+  virtual fastotv::stream_id_t GetStreamID() const = 0;
 
   common::ErrnoError Stop() WARN_UNUSED_RESULT;
   common::ErrnoError Restart() WARN_UNUSED_RESULT;

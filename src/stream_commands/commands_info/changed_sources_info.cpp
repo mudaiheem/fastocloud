@@ -21,7 +21,7 @@
 
 namespace fastocloud {
 
-ChangedSouresInfo::ChangedSouresInfo(stream_id_t sid, const url_t& url) : base_class(), id_(sid), url_(url) {}
+ChangedSouresInfo::ChangedSouresInfo(fastotv::stream_id_t sid, const url_t& url) : base_class(), id_(sid), url_(url) {}
 
 ChangedSouresInfo::ChangedSouresInfo() : base_class(), id_(), url_() {}
 
@@ -41,7 +41,7 @@ ChangedSouresInfo::url_t ChangedSouresInfo::GetUrl() const {
   return url_;
 }
 
-stream_id_t ChangedSouresInfo::GetStreamID() const {
+fastotv::stream_id_t ChangedSouresInfo::GetStreamID() const {
   return id_;
 }
 

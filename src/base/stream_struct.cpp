@@ -35,7 +35,7 @@ std::string ConvertToString(fastocloud::StreamStatus st) {
 namespace fastocloud {
 
 namespace {
-output_channels_info_t make_outputs(const std::vector<channel_id_t>& output) {
+output_channels_info_t make_outputs(const std::vector<fastotv::channel_id_t>& output) {
   output_channels_info_t res;
   for (auto out : output) {
     res.push_back(ChannelStats(out));
@@ -43,7 +43,7 @@ output_channels_info_t make_outputs(const std::vector<channel_id_t>& output) {
   return res;
 }
 
-input_channels_info_t make_inputs(const std::vector<channel_id_t>& input) {
+input_channels_info_t make_inputs(const std::vector<fastotv::channel_id_t>& input) {
   input_channels_info_t res;
   for (auto in : input) {
     res.push_back(ChannelStats(in));
@@ -62,7 +62,7 @@ StreamStruct::StreamStruct(const StreamInfo& sha,
                            size_t rest)
     : StreamStruct(sha.id, sha.type, NEW, make_inputs(sha.input), make_outputs(sha.output), start_time, lst, rest) {}
 
-StreamStruct::StreamStruct(stream_id_t sid,
+StreamStruct::StreamStruct(fastotv::stream_id_t sid,
                            fastotv::StreamType type,
                            StreamStatus status,
                            input_channels_info_t input,

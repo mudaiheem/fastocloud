@@ -28,10 +28,10 @@ typedef std::vector<ChannelStats> input_channels_info_t;
 typedef std::vector<ChannelStats> output_channels_info_t;
 
 struct StreamInfo {
-  stream_id_t id;
+  fastotv::stream_id_t id;
   fastotv::StreamType type;
-  std::vector<channel_id_t> input;
-  std::vector<channel_id_t> output;
+  std::vector<fastotv::channel_id_t> input;
+  std::vector<fastotv::channel_id_t> output;
 };
 
 }  // namespace fastocloud

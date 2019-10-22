@@ -28,7 +28,7 @@ class StreamInfo : public common::serializer::JsonSerializer<StreamInfo> {
  public:
   typedef JsonSerializer<StreamInfo> base_class;
   StreamInfo();
-  explicit StreamInfo(stream_id_t stream_id);
+  explicit StreamInfo(fastotv::stream_id_t stream_id);
 
   std::string GetStreamID() const;
 
@@ -37,7 +37,7 @@ class StreamInfo : public common::serializer::JsonSerializer<StreamInfo> {
   common::Error SerializeFields(json_object* out) const override;
 
  private:
-  stream_id_t stream_id_;
+  fastotv::stream_id_t stream_id_;
 };
 
 }  // namespace stream

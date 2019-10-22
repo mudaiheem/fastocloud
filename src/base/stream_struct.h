@@ -32,7 +32,7 @@ struct StreamStruct {
   StreamStruct();
   explicit StreamStruct(const StreamInfo& sha);
   StreamStruct(const StreamInfo& sha, fastotv::timestamp_t start_time, fastotv::timestamp_t lst, size_t rest);
-  StreamStruct(stream_id_t sid,
+  StreamStruct(fastotv::stream_id_t sid,
                fastotv::StreamType type,
                StreamStatus status,
                input_channels_info_t input,
@@ -47,7 +47,7 @@ struct StreamStruct {
 
   void ResetDataWait();
 
-  stream_id_t id;
+  fastotv::stream_id_t id;
   fastotv::StreamType type;
 
   fastotv::timestamp_t start_time;

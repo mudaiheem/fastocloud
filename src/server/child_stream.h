@@ -22,12 +22,12 @@ namespace server {
 class ChildStream : public Child {
  public:
   typedef Child base_class;
-  ChildStream(common::libev::IoLoop* server, const stream_id_t& id);
+  ChildStream(common::libev::IoLoop* server, const fastotv::stream_id_t& id);
 
-  stream_id_t GetStreamID() const override;
+  fastotv::stream_id_t GetStreamID() const override;
 
  private:
-  const stream_id_t id_;
+  const fastotv::stream_id_t id_;
   DISALLOW_COPY_AND_ASSIGN(ChildStream);
 };
 

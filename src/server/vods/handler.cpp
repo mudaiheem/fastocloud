@@ -35,7 +35,7 @@ void VodsHandler::SetHttpRoot(const http_directory_path_t& http_root) {
 }
 
 void VodsHandler::PreLooped(common::libev::IoLoop* server) {
-  base_class::PreLooped(server);
+  UNUSED(server);
 }
 
 void VodsHandler::Accepted(common::libev::IoClient* client) {
@@ -51,19 +51,23 @@ void VodsHandler::Closed(common::libev::IoClient* client) {
 }
 
 void VodsHandler::TimerEmited(common::libev::IoLoop* server, common::libev::timer_id_t id) {
-  base_class::TimerEmited(server, id);
+  UNUSED(server);
+  UNUSED(id);
 }
 
 void VodsHandler::Accepted(common::libev::IoChild* child) {
-  base_class::Accepted(child);
+  UNUSED(child);
 }
 
 void VodsHandler::Moved(common::libev::IoLoop* server, common::libev::IoChild* child) {
-  base_class::Moved(server, child);
+  UNUSED(server);
+  UNUSED(child);
 }
 
 void VodsHandler::ChildStatusChanged(common::libev::IoChild* child, int status, int signal) {
-  base_class::ChildStatusChanged(child, status, signal);
+  UNUSED(child);
+  UNUSED(status);
+  UNUSED(signal);
 }
 
 void VodsHandler::DataReceived(common::libev::IoClient* client) {
@@ -73,20 +77,19 @@ void VodsHandler::DataReceived(common::libev::IoClient* client) {
   if ((errn && errn->GetErrorCode() != EAGAIN) || nread == 0) {
     ignore_result(client->Close());
     delete client;
-    return base_class::DataReceived(client);
+    return;
   }
 
   VodsClient* hclient = static_cast<server::VodsClient*>(client);
   ProcessReceived(hclient, buff, nread);
-  base_class::DataReceived(client);
 }
 
 void VodsHandler::DataReadyToWrite(common::libev::IoClient* client) {
-  base_class::DataReadyToWrite(client);
+  UNUSED(client);
 }
 
 void VodsHandler::PostLooped(common::libev::IoLoop* server) {
-  base_class::PostLooped(server);
+  UNUSED(server);
 }
 
 void VodsHandler::ProcessReceived(VodsClient* hclient, const char* request, size_t req_len) {

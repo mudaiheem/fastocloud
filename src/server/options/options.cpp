@@ -69,7 +69,7 @@ Validity validate_is_positive(const common::Value* value, bool is_fatal) {
 }
 
 Validity validate_id(const common::Value* value) {
-  stream_id_t id;
+  fastotv::stream_id_t id;
   if (!value->GetAsBasicString(&id)) {
     return Validity::INVALID;
   }

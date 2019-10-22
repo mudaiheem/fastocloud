@@ -25,7 +25,7 @@ namespace stream {
 
 GetLogInfo::GetLogInfo() : base_class(), feedback_dir_(), path_() {}
 
-GetLogInfo::GetLogInfo(stream_id_t stream_id, const std::string& feedback_dir, const url_t& path)
+GetLogInfo::GetLogInfo(fastotv::stream_id_t stream_id, const std::string& feedback_dir, const url_t& path)
     : base_class(stream_id), feedback_dir_(feedback_dir), path_(path) {}
 
 GetLogInfo::url_t GetLogInfo::GetLogPath() const {

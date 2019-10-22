@@ -20,7 +20,7 @@ namespace stream {
 
 RestartInfo::RestartInfo() : base_class() {}
 
-RestartInfo::RestartInfo(stream_id_t stream_id) : base_class(stream_id) {}
+RestartInfo::RestartInfo(fastotv::stream_id_t stream_id) : base_class(stream_id) {}
 
 }  // namespace stream
 }  // namespace server

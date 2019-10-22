@@ -24,7 +24,7 @@ class StopInfo : public StreamInfo {
  public:
   typedef StreamInfo base_class;
   StopInfo();
-  explicit StopInfo(stream_id_t stream_id);
+  explicit StopInfo(fastotv::stream_id_t stream_id);
 };
 
 }  // namespace stream

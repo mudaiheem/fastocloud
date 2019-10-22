@@ -433,7 +433,7 @@ void ProcessSlaveWrapper::ChildStatusChanged(common::libev::IoChild* child, int 
   BroadcastClients(req);
 }
 
-Child* ProcessSlaveWrapper::FindChildByID(stream_id_t cid) const {
+Child* ProcessSlaveWrapper::FindChildByID(fastotv::stream_id_t cid) const {
   DaemonServer* server = static_cast<DaemonServer*>(loop_);
   auto childs = server->GetChilds();
   for (auto* child : childs) {

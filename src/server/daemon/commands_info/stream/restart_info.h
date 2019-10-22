@@ -25,7 +25,7 @@ class RestartInfo : public StreamInfo {
   typedef StreamInfo base_class;
 
   RestartInfo();
-  explicit RestartInfo(stream_id_t stream_id);
+  explicit RestartInfo(fastotv::stream_id_t stream_id);
 };
 
 }  // namespace stream

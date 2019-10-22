@@ -20,7 +20,7 @@ namespace fastocloud {
 
 ChannelStats::ChannelStats() : ChannelStats(0) {}
 
-ChannelStats::ChannelStats(channel_id_t cid)
+ChannelStats::ChannelStats(fastotv::channel_id_t cid)
     : id_(cid),
       last_update_time_(0),
       total_bytes_(0),
@@ -28,7 +28,7 @@ ChannelStats::ChannelStats(channel_id_t cid)
       bytes_per_second_(0),
       desire_bytes_per_second_() {}
 
-channel_id_t ChannelStats::GetID() const {
+fastotv::channel_id_t ChannelStats::GetID() const {
   return id_;
 }
 

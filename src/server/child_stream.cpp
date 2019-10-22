@@ -17,9 +17,9 @@
 namespace fastocloud {
 namespace server {
 
-ChildStream::ChildStream(common::libev::IoLoop* server, const stream_id_t& id) : base_class(server), id_(id) {}
+ChildStream::ChildStream(common::libev::IoLoop* server, const fastotv::stream_id_t& id) : base_class(server), id_(id) {}
 
-stream_id_t ChildStream::GetStreamID() const {
+fastotv::stream_id_t ChildStream::GetStreamID() const {
   return id_;
 }
 

@@ -25,7 +25,7 @@ class QuitStatusInfo : public StreamInfo {
   typedef StreamInfo base_class;
 
   QuitStatusInfo();
-  explicit QuitStatusInfo(stream_id_t stream_id, int exit_status, int signal);
+  explicit QuitStatusInfo(fastotv::stream_id_t stream_id, int exit_status, int signal);
 
   int GetSignal() const;
   int GetExitStatus() const;

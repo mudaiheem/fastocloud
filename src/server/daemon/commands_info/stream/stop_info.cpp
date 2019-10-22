@@ -20,7 +20,7 @@ namespace stream {
 
 StopInfo::StopInfo() : base_class() {}
 
-StopInfo::StopInfo(stream_id_t stream_id) : base_class(stream_id) {}
+StopInfo::StopInfo(fastotv::stream_id_t stream_id) : base_class(stream_id) {}
 
 }  // namespace stream
 }  // namespace server

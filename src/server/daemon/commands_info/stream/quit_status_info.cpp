@@ -23,7 +23,7 @@ namespace stream {
 
 QuitStatusInfo::QuitStatusInfo() : base_class(), exit_status_(), signal_() {}
 
-QuitStatusInfo::QuitStatusInfo(stream_id_t stream_id, int exit_status, int signal)
+QuitStatusInfo::QuitStatusInfo(fastotv::stream_id_t stream_id, int exit_status, int signal)
     : base_class(stream_id), exit_status_(exit_status), signal_(signal) {}
 
 int QuitStatusInfo::GetSignal() const {

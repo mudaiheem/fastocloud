@@ -35,7 +35,7 @@ ChannelStats ChannelStatsInfo::GetChannelStats() const {
 }
 
 common::Error ChannelStatsInfo::SerializeFields(json_object* out) const {
-  channel_id_t sid = stats_.GetID();
+  fastotv::channel_id_t sid = stats_.GetID();
   json_object_object_add(out, FIELD_STATS_ID, json_object_new_int64(sid));
 
   fastotv::timestamp_t last = stats_.GetLastUpdateTime();

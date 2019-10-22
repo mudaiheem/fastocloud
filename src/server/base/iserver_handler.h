@@ -27,20 +27,20 @@ class IServerHandler : public common::libev::IoLoopObserver {
 
   size_t GetOnlineClients() const;
 
-  void PreLooped(common::libev::IoLoop* server) override;
+  void PreLooped(common::libev::IoLoop* server) override = 0;
 
   void Accepted(common::libev::IoClient* client) override;
   void Moved(common::libev::IoLoop* server, common::libev::IoClient* client) override;
   void Closed(common::libev::IoClient* client) override;
-  void TimerEmited(common::libev::IoLoop* server, common::libev::timer_id_t id) override;
-  void Accepted(common::libev::IoChild* child) override;
-  void Moved(common::libev::IoLoop* server, common::libev::IoChild* child) override;
-  void ChildStatusChanged(common::libev::IoChild* child, int status, int signal) override;
+  void TimerEmited(common::libev::IoLoop* server, common::libev::timer_id_t id) override = 0;
+  void Accepted(common::libev::IoChild* child) override = 0;
+  void Moved(common::libev::IoLoop* server, common::libev::IoChild* child) override = 0;
+  void ChildStatusChanged(common::libev::IoChild* child, int status, int signal) override = 0;
 
-  void DataReceived(common::libev::IoClient* client) override;
-  void DataReadyToWrite(common::libev::IoClient* client) override;
+  void DataReceived(common::libev::IoClient* client) override = 0;
+  void DataReadyToWrite(common::libev::IoClient* client) override = 0;
 
-  void PostLooped(common::libev::IoLoop* server) override;
+  void PostLooped(common::libev::IoLoop* server) override = 0;
 
  private:
   online_clients_t online_clients_;

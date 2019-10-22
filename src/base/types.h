@@ -27,8 +27,6 @@
 
 namespace fastocloud {
 
-typedef uint64_t channel_id_t;             // channel id
-typedef fastotv::stream_id_t stream_id_t;  // db id
 typedef common::Optional<double> volume_t;
 typedef double alpha_t;
 typedef common::Optional<int> bit_rate_t;
