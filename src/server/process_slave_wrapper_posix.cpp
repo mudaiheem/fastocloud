@@ -44,7 +44,8 @@
 namespace fastocloud {
 namespace server {
 
-common::ErrnoError ProcessSlaveWrapper::CreateChildStreamImpl(const serialized_stream_t& config_args, fastotv::stream_id_t sid) {
+common::ErrnoError ProcessSlaveWrapper::CreateChildStreamImpl(const serialized_stream_t& config_args,
+                                                              fastotv::stream_id_t sid) {
 #if PIPE
   common::net::socket_descr_t read_command_client;
   common::net::socket_descr_t write_requests_client;
