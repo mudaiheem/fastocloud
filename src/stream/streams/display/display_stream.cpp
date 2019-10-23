@@ -12,18 +12,26 @@
     along with fastocloud.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#include "stream/streams/display/display_stream.h"
 
-#define DEFAULT_VOLUME 1.0
-#define DEFAULT_DECKLINK_VIDEO_MODE 1
+#include "stream/streams/builders/display/display_input_stream_builder.h"
 
-#define DEFAULT_TIMESHIFT_CHUNK_DURATION 120
-#define DEFAULT_CHUNK_LIFE_TIME 12 * 3600
+namespace fastocloud {
+namespace stream {
+namespace streams {
 
-#define DEFAULT_LOOP false
-#define DEFAULT_AVFORMAT false
+DisplayInputStream::DisplayInputStream(const EncodeConfig* config, IStreamClient* client, StreamStruct* stats)
+    : EncodingStream(config, client, stats) {}
 
-#define TEST_URL "test"
-#define DISPLAY_URL "display"
+const char* DisplayInputStream::ClassName() const {
+  return "DisplayInputStream";
+}
 
-#define LOGS_FILE_NAME "logs"
+IBaseBuilder* DisplayInputStream::CreateBuilder() {
+  const EncodeConfig* econf = static_cast<const EncodeConfig*>(GetConfig());
+  return new builders::DisplayInputStreamBuilder(econf, this);
+}
+
+}  // namespace streams
+}  // namespace stream
+}  // namespace fastocloud

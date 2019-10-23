@@ -180,4 +180,8 @@ bool IsTestInputUrl(const InputUri& url) {
   return url.GetInput() == common::uri::Url(TEST_URL);
 }
 
+bool IsDisplayInputUrl(const InputUri& url) {
+  return url.GetInput() == common::uri::Url(DISPLAY_URL);
+}
+
 }  // namespace fastocloud

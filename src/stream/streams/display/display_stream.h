@@ -14,16 +14,21 @@
 
 #pragma once
 
-#define DEFAULT_VOLUME 1.0
-#define DEFAULT_DECKLINK_VIDEO_MODE 1
+#include "stream/streams/encoding/encoding_stream.h"
 
-#define DEFAULT_TIMESHIFT_CHUNK_DURATION 120
-#define DEFAULT_CHUNK_LIFE_TIME 12 * 3600
+namespace fastocloud {
+namespace stream {
+namespace streams {
 
-#define DEFAULT_LOOP false
-#define DEFAULT_AVFORMAT false
+class DisplayInputStream : public EncodingStream {
+ public:
+  DisplayInputStream(const EncodeConfig* config, IStreamClient* client, StreamStruct* stats);
+  const char* ClassName() const override;
 
-#define TEST_URL "test"
-#define DISPLAY_URL "display"
+ protected:
+  IBaseBuilder* CreateBuilder() override;
+};
 
-#define LOGS_FILE_NAME "logs"
+}  // namespace streams
+}  // namespace stream
+}  // namespace fastocloud

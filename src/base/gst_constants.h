@@ -21,6 +21,7 @@
 #define TEST_SINK "testsink"
 #define VIDEO_TEST_SRC "videotestsrc"
 #define AUDIO_TEST_SRC "audiotestsrc"
+#define DISPLAY_SRC "ximagesrc"
 #define VIDEO_SCREEN_SINK "autovideosink"
 #define AUDIO_SCREEN_SINK "autoaudiosink"
 #define QUEUE "queue"

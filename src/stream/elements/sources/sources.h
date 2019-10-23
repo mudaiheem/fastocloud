@@ -43,6 +43,7 @@ class ElementPushSrc : public ElementBaseSrc<el> {
 
 typedef ElementPushSrc<ELEMENT_VIDEO_TEST_SRC> ElementVideoTestSrc;
 typedef ElementPushSrc<ELEMENT_AUDIO_TEST_SRC> ElementAudioTestSrc;
+typedef ElementPushSrc<ELEMENT_DISPLAY_SRC> ElementDisplayTestSrc;
 
 template <SupportedElements el>
 class ElementLocation : public ElementPushSrc<el> {

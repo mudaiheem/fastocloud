@@ -19,6 +19,7 @@
 #include "base/config_fields.h"
 
 #include "stream/link_generator/ilink_generator.h"
+#include "stream/streams/display/display_stream.h"
 #include "stream/streams/encoding/device_stream.h"
 #include "stream/streams/encoding/encoding_only_audio_stream.h"
 #include "stream/streams/encoding/encoding_only_video_stream.h"
@@ -90,6 +91,8 @@ IBaseStream* StreamsFactory::CreateStream(const Config* config,
     InputUri iuri = input[0];
     if (IsTestInputUrl(iuri)) {
       return new streams::TestInputStream(econfig, client, stats);
+    } else if (IsDisplayInputUrl(iuri)) {
+      return new streams::DisplayInputStream(econfig, client, stats);
     }
 
     if (iuri.GetInput().GetScheme() == common::uri::Url::dev) {

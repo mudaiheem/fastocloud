@@ -68,5 +68,6 @@ class InputUri : public common::serializer::JsonSerializer<InputUri> {
 };
 
 bool IsTestInputUrl(const InputUri& url);
+bool IsDisplayInputUrl(const InputUri& url);
 
 }  // namespace fastocloud

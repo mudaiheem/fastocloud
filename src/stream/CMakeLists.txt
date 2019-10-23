@@ -83,6 +83,7 @@ SET(STREAM_BUILDERS_HEADERS
 
   ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/test/test_life_stream_builder.h
   ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/test/test_input_stream_builder.h
+  ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/display/display_input_stream_builder.h
 )
 SET(STREAM_BUILDERS_SOURCES
   ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/gst_base_builder.cpp
@@ -111,6 +112,7 @@ SET(STREAM_BUILDERS_SOURCES
 
   ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/test/test_life_stream_builder.cpp
   ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/test/test_input_stream_builder.cpp
+  ${CMAKE_SOURCE_DIR}/src/stream/streams/builders/display/display_input_stream_builder.cpp
 )
 
 SET(STREAMS_HEADERS
@@ -142,6 +144,7 @@ SET(STREAMS_HEADERS
 
   ${CMAKE_SOURCE_DIR}/src/stream/streams/test/test_life_stream.h
   ${CMAKE_SOURCE_DIR}/src/stream/streams/test/test_stream.h
+  ${CMAKE_SOURCE_DIR}/src/stream/streams/display/display_stream.h
 
   ${STREAM_BUILDERS_HEADERS}
   ${STREAM_CONFIGS_HEADERS}
@@ -175,6 +178,7 @@ SET(STREAMS_SOURCES
 
   ${CMAKE_SOURCE_DIR}/src/stream/streams/test/test_life_stream.cpp
   ${CMAKE_SOURCE_DIR}/src/stream/streams/test/test_stream.cpp
+  ${CMAKE_SOURCE_DIR}/src/stream/streams/display/display_stream.cpp
 
   ${STREAM_BUILDERS_SOURCES}
   ${STREAM_CONFIGS_SOURCES}
