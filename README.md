@@ -61,6 +61,7 @@ About IPTV/Video cloud
 * Fire/Smoke detection with notifications
 * Livepeer mining crypto
 * CCTV Monitoring service
+* Screen recording
 
 Visit our site: [fastocloud.com](https://fastocloud.com)
 
