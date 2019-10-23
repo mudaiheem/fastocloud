@@ -144,7 +144,7 @@ class Arch(OperationSystem):
 
 class FreeBSD(OperationSystem):
     def get_required_exec(self) -> list:
-        return ['git', 'yasm', 'nasm', 'gcc', 'make', 'ninja', 'cmake', 'python3-pip']
+        return ['git', 'yasm', 'nasm', 'gcc', 'make', 'ninja', 'cmake', 'python3-pip', 'dbus']
 
     def get_build_exec(self) -> list:
         return ['autoconf', 'automake', 'libtool', 'pkgconf', 'gettext', 'bison', 'flex', 'cairo', 'libudev-devd']
@@ -273,6 +273,8 @@ class BuildRequest(build_utils.BuildRequest):
             distribution = system_info.linux_get_dist()
             if distribution == 'RHEL':
                 subprocess.call(['ln', '-sf', '/usr/bin/ninja-build', '/usr/bin/ninja'])
+        elif platform_name == 'freebsd':
+            subprocess.call(['dbus-uuidgen', '--ensure'])
 
     def install_tools(self):
         self._install_via_python3('streamlink')
