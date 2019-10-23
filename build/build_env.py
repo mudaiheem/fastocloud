@@ -200,7 +200,7 @@ class MacOSX(OperationSystem):
         return ['git', 'yasm', 'nasm', 'make', 'ninja', 'cmake', 'python3-pip']
 
     def get_build_exec(self) -> list:
-        return ['autoconf', 'automake', 'libtool', 'pkgconfig', 'gettext', 'bison', 'flex']
+        return ['autoconf', 'automake', 'libtool', 'pkgconfig', 'gettext', 'bison', 'flex', 'cairo']
 
     def get_gst_build_libs(self):
         return []
