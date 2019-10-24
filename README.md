@@ -1,9 +1,7 @@
 FastoCloud <https://fastocloud.com>
 ===================================
 
-.. image:: https://discordapp.com/api/guilds/348973006581923840/widget.png?style=shield
-   :alt: FastoCloud Community Discord Server
-   :target: https://discord.gg/zeG32zC
+Discord group: https://discord.gg/zeG32zC
    
 About FastoCloud
 ===============
