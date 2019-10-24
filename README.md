@@ -1,4 +1,4 @@
-[FastoCloud}(https://fastocloud.com)
+[FastoCloud](https://fastocloud.com)
 ===================================
 
 Discord group: https://discord.gg/zeG32zC
