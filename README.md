@@ -1,8 +1,6 @@
 [FastoCloud](https://fastocloud.com)
 ===================================
-.. image:: https://discordapp.com/api/guilds/584773460585086977/widget.png?style=shield
-   :alt: FastoCloud Discord Server
-   :target: https://fastocloud.com/discord
+[![FastoCloud Discord Server](https://discordapp.com/api/guilds/584773460585086977/widget.png?style=shield)](https://discord.gg/zeG32zC)
    
 About FastoCloud
 ===============
