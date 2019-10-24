@@ -1,4 +1,11 @@
-About IPTV/Video cloud
+FastoCloud <https://fastocloud.com>
+===================================
+
+.. image:: https://discordapp.com/api/guilds/348973006581923840/widget.png?style=shield
+   :alt: FastoCloud Community Discord Server
+   :target: https://discord.gg/zeG32zC
+   
+About FastoCloud
 ===============
 ### Features:
 * Cross-platform (Linux, MacOSX, FreeBSD, Raspbian/Armbian, Windows)
