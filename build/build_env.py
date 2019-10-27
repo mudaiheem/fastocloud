@@ -45,7 +45,7 @@ GLIB_NETWORKING_SRC_ROOT = 'https://ftp.gnome.org/pub/GNOME/sources/glib-network
 GLIB_NETWORKING_ARCH_COMP = 'xz'
 GLIB_NETWORKING_ARCH_EXT = 'tar.' + GLIB_NETWORKING_ARCH_COMP
 
-FAAC_URL = 'https://sourceforge.net/projects/faac/files/faac-src/faac-1.29/faac-1.29.9.2.tar.gz'
+FAAC_URL = 'https://github.com/knik0/faac/archive/1_30.tar.gz'
 OPENH264_URL = 'https://github.com/cisco/openh264'
 LIBVA_URL = 'https://github.com/intel/libva'
 LIBVA_UTILS_URL = 'https://github.com/intel/libva-utils'
