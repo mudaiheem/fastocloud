@@ -282,7 +282,7 @@ class BuildRequest(build_utils.BuildRequest):
 
     def build_faac(self):
         compiler_flags = []
-        self._download_and_build_via_configure(FAAC_URL, compiler_flags)
+        self._download_and_build_via_bootstrap(FAAC_URL, compiler_flags)
 
     def build_libva(self):
         compiler_flags = ['--buildtype=release']
