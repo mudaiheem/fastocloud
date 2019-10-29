@@ -127,7 +127,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
       if (err) {
         DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       }
-      return;
+      goto finish;
     }
 
     const std::string url_dirs = path.GetHpath();
@@ -143,7 +143,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
       if (err) {
         DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       }
-      return;
+      goto finish;
     }
 
     if (observer_) {
@@ -160,7 +160,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
       if (err) {
         DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       }
-      return;
+      goto finish;
     }
 
     if (S_ISDIR(sb.st_mode)) {
@@ -169,7 +169,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
       if (err) {
         DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       }
-      return;
+      goto finish;
     }
 
     int file = open(file_path_str.c_str(), open_flags);
@@ -179,7 +179,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
       if (err) {
         DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       }
-      return;
+      goto finish;
     }
 
     const std::string mime = path.GetMime();
@@ -188,7 +188,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
     if (err) {
       DEBUG_MSG_ERROR(err, common::logging::LOG_LEVEL_ERR);
       ::close(file);
-      return;
+      goto finish;
     }
 
     if (hrequest.GetMethod() == common::http::http_method::HM_GET) {
@@ -203,6 +203,7 @@ void HttpHandler::ProcessReceived(HttpClient* hclient, const char* request, size
     ::close(file);
   }
 
+finish:
   if (!IsKeepAlive) {
     ignore_result(hclient->Close());
     delete hclient;
