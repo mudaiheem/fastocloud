@@ -68,20 +68,6 @@ void AudioVideoConfig::SetLoop(loop_t loop) {
   loop_ = loop;
 }
 
-bool AudioVideoConfig::IsVod() const {
-  if (loop_) {
-    return false;
-  }
-
-  const auto input = GetInput();
-  if (input.size() != 1) {
-    return false;
-  }
-
-  common::uri::Url input_uri = input[0].GetInput();
-  return input_uri.GetScheme() == common::uri::Url::file;
-}
-
 AudioVideoConfig* AudioVideoConfig::Clone() const {
   return new AudioVideoConfig(*this);
 }

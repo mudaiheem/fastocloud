@@ -21,9 +21,7 @@ namespace stream {
 namespace streams {
 
 VodRelayStream::VodRelayStream(const VodRelayConfig* config, IStreamClient* client, StreamStruct* stats)
-    : base_class(config, client, stats) {
-  CHECK(config->IsVod());
-}
+    : base_class(config, client, stats) {}
 
 const char* VodRelayStream::ClassName() const {
   return "VodRelayStream";

@@ -122,12 +122,12 @@ IBaseStream* StreamsFactory::CreateStream(const Config* config,
     return new streams::test::TestLifeStream(rconfig, client, stats);
   } else if (type == fastotv::VOD_RELAY) {
     const streams::VodRelayConfig* vconfig = static_cast<const streams::VodRelayConfig*>(config);
-    if (vconfig->IsVod()) {
+    if (!vconfig->GetLoop()) {
       return new streams::VodRelayStream(vconfig, client, stats);
     }
   } else if (type == fastotv::VOD_ENCODE) {
     const streams::VodEncodeConfig* vconfig = static_cast<const streams::VodEncodeConfig*>(config);
-    if (vconfig->IsVod()) {
+    if (!vconfig->GetLoop()) {
       return new streams::VodEncodeStream(vconfig, client, stats);
     }
   }

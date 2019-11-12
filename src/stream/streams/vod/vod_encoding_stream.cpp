@@ -21,9 +21,7 @@ namespace stream {
 namespace streams {
 
 VodEncodeStream::VodEncodeStream(const VodEncodeConfig* config, IStreamClient* client, StreamStruct* stats)
-    : base_class(config, client, stats) {
-  CHECK(config->IsVod());
-}
+    : base_class(config, client, stats) {}
 
 const char* VodEncodeStream::ClassName() const {
   return "VodEncodeStream";

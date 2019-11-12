@@ -44,8 +44,6 @@ class AudioVideoConfig : public Config {
   loop_t GetLoop() const;
   void SetLoop(loop_t loop);
 
-  bool IsVod() const;
-
   AudioVideoConfig* Clone() const override;
 
  private:
