@@ -41,8 +41,6 @@
 #include "tcp/client.h"
 #endif
 
-#define TEST
-
 namespace fastocloud {
 namespace server {
 
