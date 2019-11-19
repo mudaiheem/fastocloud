@@ -173,6 +173,7 @@
 #define INTERLEAVE "interleave"
 #define DEINTERLEAVE "deinterleave"
 #define CAIRO_OVERLAY "cairooverlay"
+#define TEXT_OVERLAY "textoverlay"
 #define VIDEO_CROP "videocrop"
 #define SPECTRUM "spectrum"
 #define LEVEL "level"

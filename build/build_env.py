@@ -88,7 +88,7 @@ class Debian(OperationSystem):
                 'libdrm-dev', 'libproxy-dev',
                 'libblkid-dev', 'libsoup2.4-dev', 'libjpeg-dev',
                 'librtmp-dev', 'libasound2-dev', 'libx264-dev', 'libfaad-dev', 'libmp3lame-dev',
-                'libgdk-pixbuf2.0-dev',
+                'libgdk-pixbuf2.0-dev', 'libpango1.0-dev',
                 # 'freeglut3-dev', # 'libegl1-mesa-dev',
                 'zlib1g-dev', 'libbz2-dev'  # 'libffi-dev', 'libxrandr-dev', 'intltool', 'liborc-0.4-dev', 'libxml2-dev'
                 ]  # libgstreamer-plugins-base1.0-dev
@@ -113,7 +113,7 @@ class RedHat(OperationSystem):
         return ['libmount-devel', 'openssl-devel',
                 'libdrm-devel', 'libproxy-devel',
                 'librtmp-devel', 'libsoup-devel', 'libx264-devel', 'alsa-lib-devel', 'lame-devel',
-                'libjpeg-turbo-devel', 'gdk-pixbuf2-devel',  # 'libpciaccess-devel',
+                'libjpeg-turbo-devel', 'gdk-pixbuf2-devel', 'libpango-devel',  # 'libpciaccess-devel',
                 'libxcb-devel', 'zlib-devel'  # 'libffi-devel', 'pcre-devel'
                 ]
 

@@ -25,6 +25,7 @@
 #define OUTPUT_FIELD "output"
 #define HAVE_VIDEO_FIELD "have_video"
 #define HAVE_AUDIO_FIELD "have_audio"
+#define HAVE_SUBTITLE_FIELD "have_subtitle"
 #define DEINTERLACE_FIELD "deinterlace"
 #define FRAME_RATE_FIELD "framerate"
 #define AUDIO_CHANNELS_FIELD "audio_channels"

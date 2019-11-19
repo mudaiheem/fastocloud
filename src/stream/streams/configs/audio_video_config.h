@@ -35,6 +35,9 @@ class AudioVideoConfig : public Config {
   have_stream_t HaveAudio() const;  // relay, encoding
   void SetHaveAudio(have_stream_t have_audio);
 
+  have_stream_t HaveSubtitle() const;  // relay, encoding
+  void SetHaveSubtitle(have_stream_t have_subtitle);
+
   audio_select_t GetAudioSelect() const;
   void SetAudioSelect(audio_select_t sel);
 
@@ -49,6 +52,7 @@ class AudioVideoConfig : public Config {
  private:
   have_stream_t have_video_;
   have_stream_t have_audio_;
+  have_stream_t have_subtitle_;
   audio_select_t audio_select_;
   avformat_t avformat_;
   loop_t loop_;

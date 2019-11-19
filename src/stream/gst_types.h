@@ -29,6 +29,7 @@ typedef std::vector<elements::Element*> elements_line_t;
 struct Connector {
   elements::Element* video;
   elements::Element* audio;
+  elements::Element* subtitle;
 };
 
 enum EncoderType { GPU_MFX, GPU_VAAPI, CPU };

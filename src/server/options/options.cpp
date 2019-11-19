@@ -456,6 +456,7 @@ bool FindOption(const std::string& key, option_t* opt) {
     {VIDEO_CODEC_FIELD, validate_video_codec},
     {HAVE_VIDEO_FIELD, dont_validate},
     {HAVE_AUDIO_FIELD, dont_validate},
+    {HAVE_SUBTITLE_FIELD, dont_validate},
     {DEINTERLACE_FIELD, dont_validate},
     {RELAY_AUDIO_FIELD, dont_validate},
     {RELAY_VIDEO_FIELD, dont_validate},

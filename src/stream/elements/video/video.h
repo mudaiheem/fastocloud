@@ -84,6 +84,12 @@ class ElementCairoOverlay : public ElementEx<ELEMENT_CAIRO_OVERLAY> {
   gboolean RegisterDrawCallback(draw_callback_t cb, gpointer user_data) WARN_UNUSED_RESULT;
 };
 
+class ElementTextOverlay : public ElementEx<ELEMENT_TEXT_OVERLAY> {
+ public:
+  typedef ElementEx<ELEMENT_TEXT_OVERLAY> base_class;
+  using base_class::base_class;
+};
+
 }  // namespace video
 }  // namespace elements
 }  // namespace stream

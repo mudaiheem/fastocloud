@@ -217,6 +217,12 @@ common::Error make_config(const StreamConfig& config_args, Config** config) {
     aconf.SetHaveAudio(have_audio);
   }
 
+  bool have_subtitle;
+  common::Value* have_subtitle_field = config_args->Find(HAVE_SUBTITLE_FIELD);
+  if (have_subtitle_field && have_subtitle_field->GetAsBoolean(&have_subtitle)) {
+    aconf.SetHaveSubtitle(have_subtitle);
+  }
+
   int audio_select;
   common::Value* audio_select_field = config_args->Find(AUDIO_SELECT_FIELD);
   if (audio_select_field && audio_select_field->GetAsInteger(&audio_select)) {
