@@ -145,6 +145,7 @@ void MosaicStream::HandleDecodeBinPadAdded(GstElement* src, GstPad* new_pad) {
   elements::Element* dest = nullptr;
   bool is_video = strncmp(new_pad_type, "video", 5) == 0;
   bool is_audio = strncmp(new_pad_type, "audio", 5) == 0;
+  bool is_subtitle = strncmp(new_pad_type, "text", 4) == 0;
   const char* gst_element_name = GST_ELEMENT_NAME(src);
   element_id_t elem_id;
   if (!GetElementId(gst_element_name, &elem_id)) {
@@ -173,6 +174,9 @@ void MosaicStream::HandleDecodeBinPadAdded(GstElement* src, GstPad* new_pad) {
       }
 
       gst_caps_unref(caps);
+    }
+  } else if (is_subtitle) {
+    if (config->HaveSubtitle()) {
     }
   } else {
     // something else

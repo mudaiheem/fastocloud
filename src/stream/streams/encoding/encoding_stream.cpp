@@ -181,6 +181,7 @@ void EncodingStream::HandleDecodeBinPadAdded(GstElement* src, GstPad* new_pad) {
   elements::Element* dest = nullptr;
   bool is_video = strncmp(new_pad_type, "video", 5) == 0;
   bool is_audio = strncmp(new_pad_type, "audio", 5) == 0;
+  bool is_subtitle = strncmp(new_pad_type, "text", 4) == 0;
   if (is_video) {
     if (config->HaveVideo() && !IsVideoInited()) {
       dest = GetElementByName(common::MemSPrintf(UDB_VIDEO_NAME_1U, 0));
@@ -193,6 +194,9 @@ void EncodingStream::HandleDecodeBinPadAdded(GstElement* src, GstPad* new_pad) {
       if (!audio_select || (GetPadId(gst_pad_name, &current_audio_track) && *audio_select == current_audio_track)) {
         dest = GetElementByName(common::MemSPrintf(UDB_AUDIO_NAME_1U, 0));
       }
+    }
+  } else if (is_subtitle) {
+    if (config->HaveSubtitle()) {
     }
   } else {
     // something else
