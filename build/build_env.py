@@ -368,7 +368,7 @@ class BuildRequest(build_utils.BuildRequest):
     def build_gst_fastoml(self):
         compiler_flags = ['--buildtype=release']
         url = build_utils.generate_fastogt_git_path('gst-fastoml')
-        self._download_and_build_via_meson(url, compiler_flags)
+        self._clone_and_build_via_meson(url, compiler_flags)
 
     def build_gst_libav(self, version):
         compiler_flags = []
