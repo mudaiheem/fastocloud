@@ -52,6 +52,7 @@ LIBVA_UTILS_URL = 'https://github.com/intel/libva-utils'
 INTEL_VAAPI_DRIVER_URL = 'https://github.com/intel/intel-vaapi-driver'
 MEDIA_SDK_URL = 'https://github.com/Intel-Media-SDK/MediaSDK'
 GSTREAMER_MFX_URL = 'https://github.com/intel/gstreamer-media-SDK'
+OPENCV_URL = 'https://github.com/opencv/opencv'
 
 SRT_SRC_URL = 'https://github.com/Haivision/srt/archive/'
 SRT_ARCH_COMP = 'gz'
@@ -306,6 +307,15 @@ class BuildRequest(build_utils.BuildRequest):
         url = '{0}/v{1}.{2}'.format(SRT_SRC_URL, version, SRT_ARCH_EXT)
         self._download_and_build_via_cmake(url, compiler_flags)
 
+    def build_opencv(self):
+        compiler_flags = ['-DBUILD_JAVA=OFF', '-DBUILD_TESTS=OFF', '-DWITH_GSTREAMER=OFF',
+                          '-DOPENCV_GENERATE_PKGCONFIG=ON']
+        self._clone_and_build_via_cmake(OPENCV_URL, compiler_flags)
+
+    def build_fastoml(self):
+        cmake_flags = []
+        self._clone_and_build_via_cmake(build_utils.generate_fastogt_git_path('fastoml'), cmake_flags)
+
     def build_glib(self, version):
         compiler_flags = ['--buildtype=release', '-Dgtk_doc=false']
         glib_version_short = version[:version.rfind('.')]
@@ -353,6 +363,11 @@ class BuildRequest(build_utils.BuildRequest):
         compiler_flags = ['--buildtype=release']
         url = '{0}gst-plugins-ugly/gst-plugins-ugly-{1}.{2}'.format(GST_PLUGINS_UGLY_SRC_ROOT, version,
                                                                     GST_PLUGINS_UGLY_ARCH_EXT)
+        self._download_and_build_via_meson(url, compiler_flags)
+
+    def build_gst_fastoml(self):
+        compiler_flags = ['--buildtype=release']
+        url = build_utils.generate_fastogt_git_path('gst-fastoml')
         self._download_and_build_via_meson(url, compiler_flags)
 
     def build_gst_libav(self, version):
@@ -473,6 +488,15 @@ if __name__ == "__main__":
     parser.add_argument('--srt-version', help='srt version (default: {0})'.format(srt_default_version),
                         default=srt_default_version)
 
+    # opencv
+    opencv_grp = parser.add_mutually_exclusive_group()
+    opencv_grp.add_argument('--with-opencv', help='build opencv (default, version: git master)',
+                            dest='with_opencv',
+                            action='store_true', default=False)
+    opencv_grp.add_argument('--without-opencv', help='build without opencv', dest='with_opencv',
+                            action='store_false',
+                            default=True)
+
     # json-c
     jsonc_grp = parser.add_mutually_exclusive_group()
     jsonc_grp.add_argument('--with-json-c', help='build json-c (default, version: git master)', dest='with_jsonc',
@@ -505,6 +529,15 @@ if __name__ == "__main__":
                                       dest='with_fastotv_protocol',
                                       action='store_false',
                                       default=False)
+
+    # fastoml
+    fastoml_grp = parser.add_mutually_exclusive_group()
+    fastoml_grp.add_argument('--with-fastoml', help='build fastoml (default, version: git master)',
+                             dest='with_fastoml',
+                             action='store_true', default=False)
+    fastoml_grp.add_argument('--without-fastoml', help='build without fastoml', dest='with_fastoml',
+                             action='store_false',
+                             default=True)
 
     # glib
     glib_grp = parser.add_mutually_exclusive_group()
@@ -607,6 +640,15 @@ if __name__ == "__main__":
                         help='gst-plugins-ugly version (default: {0})'.format(gst_plugins_ugly_default_version),
                         default=gst_plugins_ugly_default_version)
 
+    # gst-fastoml
+    gst_fastoml_grp = parser.add_mutually_exclusive_group()
+    gst_fastoml_grp.add_argument('--with-gst-fastoml', help='build gst-fastoml (default, version: git master)',
+                                 dest='with_gst_fastoml',
+                                 action='store_true', default=False)
+    gst_fastoml_grp.add_argument('--without-gst-fastoml', help='build without gst-fastoml', dest='with_gst_fastoml',
+                                 action='store_false',
+                                 default=True)
+
     # gst-libav
     gst_libav_grp = parser.add_mutually_exclusive_group()
     gst_libav_grp.add_argument('--with-gst-libav',
@@ -679,6 +721,9 @@ if __name__ == "__main__":
     if argv.with_srt and arg_install_other_packages:
         request.build_srt(argv.srt_version)
 
+    if argv.with_opencv and arg_install_other_packages:
+        request.build_opencv()
+
     if argv.with_jsonc and arg_install_other_packages:
         request.build_jsonc()
     if argv.with_libev and arg_install_other_packages:
@@ -688,6 +733,9 @@ if __name__ == "__main__":
 
     if argv.with_fastotv_protocol and arg_install_fastogt_packages:
         request.build_fastotv_protocol()
+
+    if argv.with_fastoml and arg_install_fastogt_packages:
+        request.build_fastoml()
 
     # if argv.with_openssl:
     #    request.build_openssl(argv.openssl_version, True)
@@ -710,6 +758,9 @@ if __name__ == "__main__":
 
     if argv.with_gst_plugins_ugly and arg_install_gstreamer_packages:
         request.build_gst_plugins_ugly(argv.gst_plugins_ugly_version)
+
+    if argv.with_gst_fastoml and arg_install_gstreamer_packages:
+        request.build_gst_fastoml()
 
     if argv.with_gst_libav and arg_install_gstreamer_packages:
         request.build_gst_libav(argv.gst_libav_version)
