@@ -30,6 +30,7 @@ About FastoCloud
 * File Formats
 * Presets
 * Vods/Series server-side support
+* Pay per view channels
 * Channels on demand
 * HTTP Live Streaming (HLS) server-side support
 * Public API, client server communication via [JSON RPC](https://www.jsonrpc.org/specification)
