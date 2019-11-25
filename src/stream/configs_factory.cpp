@@ -275,7 +275,7 @@ common::Error make_config(const StreamConfig& config_args, Config** config) {
     *config = rconfig;
     return common::Error();
   } else if (stream_type == fastotv::ENCODE || stream_type == fastotv::VOD_ENCODE ||
-             stream_type == fastotv::COD_ENCODE) {
+             stream_type == fastotv::COD_ENCODE || stream_type == fastotv::EVENT) {
     streams::EncodeConfig* econfig = new streams::EncodeConfig(aconf);
     bool relay_audio;
     common::Value* relay_audio_field = config_args->Find(RELAY_AUDIO_FIELD);
